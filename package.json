@@ -1,0 +1,28 @@
+{
+  "name": "ignite-your-app",
+  "version": "1.0.0",
+  "description": "Namaste React course",
+  "scripts": {
+    "test": "jest",
+    "start": "parcel index.html",
+    "build": "parcel build index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nishant0897/Namaste-React_Assignments.git"
+  },
+  "author": "Nishant Singh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Nishant0897/Namaste-React_Assignments/issues"
+  },
+  "homepage": "https://github.com/Nishant0897/Namaste-React_Assignments#readme",
+  "devDependencies": {
+    "parcel": "^2.12.0",
+    "process": "^0.11.10"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}
