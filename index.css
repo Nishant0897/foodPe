@@ -29,7 +29,7 @@
     display: flex;
     flex-wrap: wrap;
     padding: 5px;
-    background-color: rgb(204, 238, 204);
+    background-color: whitesmoke;
 
 }
 
@@ -37,7 +37,7 @@
     display: flex;
     flex-wrap: wrap;
     padding: 5px;
-    background-color: rgb(204, 238, 204);
+    background-color: whitesmoke;
 }
 .res-card:hover{
     cursor: pointer;
@@ -48,16 +48,17 @@
 }
 .res-card
 {
-    background-color: lightgrey;
+    background-color: white;
     padding: 10px;
     margin: 5px ;
     width: 220 px;
+    
 }
 
 .shimmer-card
 {
     display: flex;
-    background-color: lightgrey;
+    background-color: white;
     padding: 10px;
     margin: 5px ;
     width: 220px; 
@@ -127,3 +128,18 @@
     padding: 0px 20px;
     cursor: pointer;
   }
+
+  .cart{
+    text-align: center;
+    color: #eba118;
+    font: 1em sans-serif;
+
+  }
+  .about{
+    text-align: center;
+    color: #eba118;
+    font: 1em sans-serif;
+
+  }
+
+ 
