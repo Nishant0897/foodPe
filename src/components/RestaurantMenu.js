@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { MENU_API } from "../../utils/URL";
 import { useParams } from "react-router-dom";
 import Shimmer from "./Shimmer";
+import CollapsibleButton from "./CollapsibleButton";
 
 
 
@@ -25,19 +26,16 @@ const RestaurantMenu=()=>
     if (resInfo===null) return <Shimmer/>;
 
     console.log(resInfo);
-    const {name,cuisines,costForTwoMessage}=resInfo?.cards[0]?.card?.card?.info;
-    const {itemCards} =resInfo?.cards[2]?.groupedCard?.cardGroupMap.REGULAR?.cards[5]?.card?.card;
+    const {name,cuisines,costForTwoMessage}=resInfo?.cards[2]?.card?.card?.info;
+    const {itemCards} =resInfo?.cards[4]?.groupedCard?.cardGroupMap.REGULAR?.cards[5]?.card?.card;
+    const {cards}=resInfo?.cards[4]?.groupedCard?.cardGroupMap.REGULAR;
+    
     
     return (
-        <><div className="menu">
-    <h3>{name}</h3>
-    <p>{cuisines.join(", ")} - {costForTwoMessage}</p>
-    
-    <ul>
-        {itemCards.map(item =>(
-            <li key={item.card?.info?.id}>{item.card?.info?.name} - Rs {item.card?.info?.defaultPrice/100 || item.card?.info?.price/100}</li>
-        ))}
-    </ul>
+        <><div className="menu pt-5">
+    <h3 className=" text-center font-serif text-lg">{name}</h3>
+    <p className=" text-center font-serif text-base">{cuisines.join(", ")} - {costForTwoMessage}</p>
+    <CollapsibleButton catData={cards}/>
     
     
 </div>

@@ -1,4 +1,4 @@
-import Card from "./Card";
+import Card,{withOpenCard} from "./Card";
 import { useEffect, useState } from "react";
 import { REST_API } from "../../utils/URL";
 import Shimmer from "./Shimmer"
@@ -23,6 +23,7 @@ const Body=()=>
     const [searchText,setSearchText]=useState("");
     const [filterList,setFilterList]=useState([]);
     const [resList,setResList]=useState([]);
+    const OpenCard=withOpenCard(Card);
 
     useEffect(()=>{
         fetchData();
@@ -41,27 +42,27 @@ const Body=()=>
     }
 
     return (
-        <><div className="filter">
-            <button className="filter-btn" style={{marginRight:20}}onClick={()=>
-            {const fList=resList.filter((res)=>res.info.avgRating>4.4);
+        <><div className="flex justify-center">
+            <button className="px-3 py-2 m-5 shadow-md rounded-lg" onClick={()=>
+            {const fList=resList.filter((res)=>res.info.avgRating>4.2);
                 setFilterList(fList);
             }
             }>Top Rated Restaurant</button>
-            <button className="btn" style={{marginRight:20}} onClick={()=>
+            <button className="px-3 py-2 m-5 shadow-md rounded-lg"  onClick={()=>
             {
                 setFilterList(resList);
             }
             }>All Restaurant</button>
             </div>
             
-        <div className="search-container">
+        <div className="flex justify-center m-4 ">
             <input 
             type="text" 
-            className="search-input"
-            placeholder="Search a restaurant you want ...." 
+            className="w-60 py-0.5 m-4 shadow-md"
+            placeholder="Search a restaurant you want 🍟" 
             value={searchText} onChange={(e)=>{setSearchText(e.target.value)}}></input>
             <button
-          className="search-btn"
+          className=" bg-orange-300 px-3 py-2 m-5 shadow-md rounded-xl"
           onClick={() => {
             const data = filterData(searchText, resList);
             setFilterList(data);
@@ -71,10 +72,14 @@ const Body=()=>
         </button>
         </div>
         
-        <div className="res-container">
+        <div className="flex flex-wrap bg-orange-50">
             {
                 filterList.map((restaurant)=>(
-                <Link style={linkStyle} key={restaurant.info.id} to={"/restaurants/"+restaurant.info.id}><Card  resData={restaurant}/></Link>
+                <Link style={linkStyle} key={restaurant.info.id} to={"/restaurants/"+restaurant.info.id}>
+                {
+                    restaurant?.info?.availability?.opened?<OpenCard  resData={restaurant}/>:<Card  resData={restaurant}/>
+                }
+                </Link>
                 ))
             }
             
