@@ -11,7 +11,7 @@ class About extends React.Component
     render()
     {
         return (
-            <><div className="user">
+            <><div className=" text-2xl font-sans pt-4 text-orange-500">
                 <UserClass />
                 </div></>
         )

@@ -58,7 +58,7 @@ const Body=()=>
         <div className="flex justify-center m-4 ">
             <input 
             type="text" 
-            className="w-60 py-0.5 m-4 shadow-md"
+            className="w-60 py-0.5 m-4 shadow-md pl-3"
             placeholder="Search a restaurant you want 🍟" 
             value={searchText} onChange={(e)=>{setSearchText(e.target.value)}}></input>
             <button

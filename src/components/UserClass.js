@@ -29,15 +29,18 @@ class UserClass extends Component
         const {name,location,avatar_url,login}=this.state.user;
         
         return(
-            <><div className="about"><h1>Welcome to foodPe 🍕</h1>
-            <h2>Your one stop solution for hunger 🤤</h2></div>
-            <div className="user-card">
-                <div className="user">
-                    <img className="img" src={avatar_url}></img>
+            <><div className="text-center"><h1>Welcome to foodPe 🍕</h1>
+            <h2 className="text-center">Your one stop solution for hunger 🤤</h2></div>
+            
+                <div className="flex justify-center pt-5">
+                    <img className="h-[300px] w-[280]"src={avatar_url}></img>
+                    </div>
+                    <div className="text-center pt-5">
                     <h3>{name}  -  {login}</h3>
-                    <h5>{location}</h5>
-                </div>
-            </div></>
+                    <h5>{location} 🐱‍👤</h5>
+                    </div>
+                
+            </>
         )
     }
 }
