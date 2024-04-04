@@ -11,14 +11,16 @@ import { Provider } from "react-redux";
 import { createBrowserRouter,RouterProvider,Outlet } from "react-router-dom";
 import RestaurantMenu from "./components/RestaurantMenu";
 import appStore from "../utils/appStore";
+import Footer from "./components/Footer";
 
 const AppLayout=()=>
 {
    return (
     <Provider store={appStore}>
-   <div className="app">
+   <div className="min-h-screen">
     <Head/>
     <Outlet/>
+    <Footer/>
     </div>
     </Provider> )
 }

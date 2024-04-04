@@ -21,7 +21,7 @@ function filterData(searchText, filterList) {
 const Body=()=>
 {
     const [searchText,setSearchText]=useState("");
-    const [filterList,setFilterList]=useState([]);
+    const [filterList,setFilterList]=useState(null);
     const [resList,setResList]=useState([]);
     const OpenCard=withOpenCard(Card);
 
@@ -30,16 +30,17 @@ const Body=()=>
     },[]);
 
     const fetchData=async ()=>{
-        const data=await fetch("https://thingproxy.freeboard.io/fetch/https://www.swiggy.com/dapi/restaurants/list/v5?lat=26.835193562411742&lng=81.01350847631693&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
+        const data=await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=26.835193562411742&lng=81.01350847631693&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
         const json=await data.json();
         setFilterList(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
         setResList(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
     };
-
-    if(filterList.length === 0)
-    {
-        return <Shimmer/>
-    }
+    
+    // if(filterList.length === 0)
+    // {
+    //     console.log("shimmer");
+    //     return <Shimmer/>
+    // }
 
     return (
         <><div className="flex justify-center">
