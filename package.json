@@ -38,5 +38,14 @@
     "react-redux": "^9.1.0",
     "react-router-dom": "^6.22.3",
     "styled-components": "^6.1.8"
+  },
+  "browserslist": {
+    "production": [
+      "last 2 versions"
+    ],
+    "development": [
+      "last 2 versions"
+    ]
   }
+
 }
