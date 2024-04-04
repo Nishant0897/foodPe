@@ -21,7 +21,7 @@ function filterData(searchText, filterList) {
 const Body=()=>
 {
     const [searchText,setSearchText]=useState("");
-    const [filterList,setFilterList]=useState(null);
+    const [filterList,setFilterList]=useState([]);
     const [resList,setResList]=useState([]);
     const OpenCard=withOpenCard(Card);
 
@@ -35,13 +35,11 @@ const Body=()=>
         setFilterList(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
         setResList(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
     };
+    if(filterList.length===0){
+        return <Shimmer/>
+    }
     
-    // if(filterList.length === 0)
-    // {
-    //     console.log("shimmer");
-    //     return <Shimmer/>
-    // }
-
+    
     return (
         <><div className="flex justify-center">
             <button className="px-3 py-2 m-5 shadow-md rounded-lg" onClick={()=>
