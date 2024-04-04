@@ -38,8 +38,7 @@ const Body=()=>
     if(filterList.length===0){
         return <Shimmer/>
     }
-    
-    
+    else{
     return (
         <><div className="flex justify-center">
             <button className="px-3 py-2 m-5 shadow-md rounded-lg" onClick={()=>
@@ -70,9 +69,10 @@ const Body=()=>
           Search
         </button>
         </div>
-        
+      
         <div className="flex flex-wrap bg-orange-50">
             {
+                
                 filterList.map((restaurant)=>(
                 <Link style={linkStyle} key={restaurant.info.id} to={"/restaurants/"+restaurant.info.id}>
                 {
@@ -84,7 +84,7 @@ const Body=()=>
             
         </div></>
 
-    );
+    );}
     
 }
     
